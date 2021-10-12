@@ -10,13 +10,13 @@ const Layout = ({ children, title = 'Zgubione-Znalezione', description = 'Opis b
 				<meta name="description" content={description} />
       </Head>
 			<header className={styles.header}>
-				Zgubione-Znalezione
+			<Link href="/">Zgubione-Znalezione</Link>
 			</header>
-		
+
 			{children}
 			
 			<footer className={styles.footer}>
-				Copyright © {new Date().getFullYear()} <Link href="https://zgubione.com"><a>Zgubione-Znalezione</a></Link> - Wszystkie prawa zastrzeżone.
+				Copyright © {new Date().getFullYear()} <Link href="https://zgubione.com">Zgubione-Znalezione</Link> - Wszystkie prawa zastrzeżone.
 			</footer>
     </>
   )

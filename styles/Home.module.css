@@ -1,0 +1,27 @@
+.home {
+	display: block;
+	max-width: 800px;
+	margin: 20px auto;
+}
+
+.homeItem {
+	width: 100%;
+	border: 3px solid #1a1a1a;
+	border-radius: 6px;
+	padding: 40px;
+	color: #1a1a1a;
+	transition: 0.2s all ease-in-out;
+}
+
+.homeItem:hover {
+	color: blue;
+	border: 3px solid blue;
+}
+
+@media (min-width: 768px) {
+	.home {
+		display: flex;
+		justify-content: space-between;
+		margin: 40px auto;
+	}
+}
