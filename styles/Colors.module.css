@@ -1,0 +1,51 @@
+/* text colors */
+
+.white {
+	color: #ffffff;
+}
+
+.grey {
+	color: #d8d8d8;
+}
+
+.black {
+	color: #1a1a1a;
+}
+
+.blue {
+	color: #34aaf2;
+}
+
+.purple {
+	color: #731982;
+}
+
+.green {
+	color: #00b956;
+}
+
+/* background colors */
+
+.backgroundWhite {
+	background-color: #ffffff;
+}
+
+.backgroundGrey {
+	background-color: #d8d8d8;
+}
+
+.backgroundBlack {
+	background-color: #1a1a1a;
+}
+
+.backgroundBlue {
+	background-color: #34aaf2;
+}
+
+.backgroundPurple {
+	background-color: #731982;
+}
+
+.backgroundGreen {
+	background-color: #00b956;
+}

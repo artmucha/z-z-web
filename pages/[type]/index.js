@@ -1,7 +1,7 @@
 import Layout from 'components/Layout';
 import { container } from 'styles/Layout.module.css'
 
-const Lost = () => {
+const Type = () => {
   return (
     <Layout>
       <main className={container}>
@@ -13,4 +13,4 @@ const Lost = () => {
   )
 };
 
-export default Lost;
+export default Type;

@@ -1,14 +1,16 @@
 import Layout from 'components/Layout';
 import { container } from 'styles/Layout.module.css'
 
-const Found = () => {
+const Category = () => {
   return (
     <Layout>
       <main className={container}>
-        <h1>Znalezione</h1>
+        <div>
+          <h1>Kategoria</h1>
+        </div>
       </main>
     </Layout>
   )
 };
 
-export default Found;
+export default Category;

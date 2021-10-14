@@ -1,24 +1,21 @@
-import Link from 'next/link';
-
+import Header from 'components/Header';
 import Layout from 'components/Layout';
-import { container } from 'styles/Layout.module.css'
+import Searcher from 'components/Searcher';
+
 import styles from 'styles/Home.module.css'
 
 const Home = () => {
   return (
     <Layout>
-      <main className={container}>
-        <div className={styles.home}>
-          <Link href="/zgubione">
-            <div className={styles.homeItem}>
-              Zgubione
-            </div>
-          </Link>
-          <Link href="/znalezione">
-            <div className={styles.homeItem}>
-              Znalezione
-            </div>
-          </Link>
+      <Header>
+        <div className={styles.hero}>
+          <h1 className={styles.heroTitle}>Odzyskaj zagubione przedmioty</h1>
+          <Searcher />
+        </div>
+      </Header>
+      <main>
+        <div>
+        
         </div>
       </main>
     </Layout>
