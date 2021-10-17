@@ -4,7 +4,7 @@ import { header } from 'styles/Layout.module.css'
 const Header = ({children}) => {
   return (
     <header className={ header }>
-      <Link href="/">Zgubione.com</Link>
+      <Link href="/"><a>Zgubione.com</a></Link>
       { children }
     </header>
   )

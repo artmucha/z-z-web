@@ -15,7 +15,7 @@ const Layout = ({ children, title = 'Zgubione.com', description = 'Opis będzie 
 			{children}
 			
 			<footer className={footer}>
-				Copyright © {new Date().getFullYear()} <Link href="https://zgubione.com">Zgubione.com</Link> - Wszystkie prawa zastrzeżone.
+				Copyright © {new Date().getFullYear()} <Link href="https://zgubione.com"><a>Zgubione.com</a></Link> - Wszystkie prawa zastrzeżone.
 			</footer>
     </>
   )

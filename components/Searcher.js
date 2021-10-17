@@ -8,7 +8,7 @@ const Searcher = () => {
         <label className={searcher}>
           <input className={input} type="search" placeholder="Czego szukasz?" />
         </label>
-        <button type="submit" class={button}>Szukaj</button>
+        <button type="submit" className={button}>Szukaj</button>
       </form>
     </>
   )

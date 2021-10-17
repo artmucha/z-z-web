@@ -11,6 +11,7 @@
 	background-color: #00b956;
 	color: #ffffff;
 	text-align: center;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.07), 0 3px 7px 0 rgba(0, 0, 0, 0.06);
 }
 
 .heroTitle {
@@ -19,5 +20,13 @@
 }
 
 .categories {
+	margin-top: 15px;
 	display: flex;
+	overflow-x: auto;
+	padding-bottom: 10px;
+}
+
+.categories > a {
+	margin-right: 7.5px;
+	margin-left: 7.5px;
 }
