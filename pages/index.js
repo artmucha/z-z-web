@@ -36,6 +36,125 @@ const Home = () => {
           )}
         </div>
       </Header>
+      <section>
+        <h2 className={styles.homeHeading}>Najnowsze Zgubione</h2>
+        <div>
+
+          {/* start */}
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/post.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/kot.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/post.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/kot.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          {/* end */}
+
+        </div>
+      </section>
+
+      <section>
+        <h2 className={styles.homeHeading}>Najnowsze Znalezione</h2>
+        <div>
+          
+
+          {/* start */}
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/post.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/kot.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/post.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          <Link 
+              href={`/znalezione/`}
+            ><a>
+              <Card 
+                image="/public/kot.jpeg"
+                width="100%"
+                height="200px"
+                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+              />
+              </a>
+          </Link>
+
+          {/* end */}
+
+          </div>
+      </section>
+
       <main>
       </main>
     </Layout>
