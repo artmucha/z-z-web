@@ -8,6 +8,15 @@
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04);
 }
 
+.menu {
+	display: flex;
+	align-items: center;
+}
+
+.menu li {
+	margin-left: 15px;
+}
+
 .footer {
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -23,6 +32,16 @@
 }
 
 .container {
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.containerFlex {
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 	max-width: 1600px;
 	margin: 0 auto;
