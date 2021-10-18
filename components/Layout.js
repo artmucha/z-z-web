@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { footer } from 'styles/Layout.module.css'
+import { footer, container } from 'styles/Layout.module.css'
 
 const Layout = ({ children, title = 'Zgubione.com', description = 'Opis będzie później' }) => {
   return (
@@ -15,8 +15,10 @@ const Layout = ({ children, title = 'Zgubione.com', description = 'Opis będzie 
 			{children}
 			
 			<footer className={footer}>
-				Copyright © {new Date().getFullYear()} <Link href="https://zgubione.com"><a>Zgubione.com</a></Link> - Wszystkie prawa zastrzeżone.
-			</footer>
+        <div className={container}>
+          Copyright © {new Date().getFullYear()} <Link href="https://zgubione.com"><a>Zgubione.com</a></Link> - Wszystkie prawa zastrzeżone.
+        </div>
+      </footer>
     </>
   )
 }

@@ -2,14 +2,16 @@
 	width: 100%;
 	background-color: #ffffff;
 	color: #1a1a1a;
-	padding: 20px 15px;
+	padding-top: 15px;
+	padding-bottom: 5px;
 	border-radius: 25px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04);
 }
 
 .footer {
-	padding: 20px 10px;
-	margin-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 30px;
 	line-height: 1.7;
 	font-weight: 700;
 	background-color: #ffffff;
@@ -22,19 +24,47 @@
 
 .container {
 	width: 100%;
-	max-width: 1400px;
+	max-width: 1600px;
 	margin: 0 auto;
 	padding-left: 15px;
 	padding-right: 15px;
 }
 
-@media (min-width: 992px) {
+.grid {
+	display: grid;
+	grid-row-gap: 15px;
+}
+
+@media (min-width: 400px) {
+	.grid {
+		grid-column-gap: 15px;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (min-width: 768px) {
 	.header {
-		padding: 20px 15px;
+		padding-top: 30px;
+		padding-bottom: 20px;
 	}
 
 	.footer {
-		padding: 20px 15px;
-		margin-top: 40px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		margin-top: 50px;
+	}
+
+	.grid {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+
+@media (min-width: 992px) {
+	.header {
+		border-radius: 80px;
+	}
+
+	.footer {
+		border-radius: 80px;
 	}
 }

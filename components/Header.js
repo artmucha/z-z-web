@@ -1,10 +1,12 @@
 import Link from 'next/link';
-import { header } from 'styles/Layout.module.css'
+import { header, container } from 'styles/Layout.module.css'
 
 const Header = ({children}) => {
   return (
-    <header className={ header }>
-      <Link href="/"><a>Zgubione.com</a></Link>
+    <header className={header}>
+      <nav className={container}>
+        <Link href="/"><a>Zgubione.com</a></Link>
+      </nav>
       { children }
     </header>
   )
