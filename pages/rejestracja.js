@@ -9,17 +9,29 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [regulations, setRegulations] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const submit = async e => {
     e.preventDefault();
 
-    const resp = await fetch('http://localhost:5000/api/users/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({email, password}),
-    });
+    try {
+      const res = await fetch('http://localhost:5000/api/users/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email, password}),
+      })
+
+      const response = await res.json();
+
+      if (response?.errors) {
+        setErrors(response.errors)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
   };
 
   return (
@@ -59,6 +71,13 @@ const Signup = () => {
             />
             Zapoznałem się z Regulaminem i Polityką prywatności oraz akceptuję ich zapisy.
           </label>
+
+          { errors.length && (
+            <ul className={styles.errors}>
+              {errors.map(err => <li key={err.field} >{err.message}</li>)}
+            </ul>
+          )}
+
           <button type="submit" style={{marginTop: '15px'}}>Zarejestruj</button>
         </form>
       </div>
