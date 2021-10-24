@@ -67,7 +67,7 @@ const Signup = () => {
 
           { errors }
 
-          <button type="submit" style={{marginTop: '15px'}}>Zarejestruj</button>
+          <button className={styles.button} type="submit" style={{marginTop: '15px'}}>Zarejestruj</button>
         </form>
       </div>
     </Layout>

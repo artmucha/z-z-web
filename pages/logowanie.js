@@ -54,7 +54,7 @@ const Signin = () => {
 
         { errors }
 
-          <button type="submit">Zaloguj</button>
+          <button className={styles.button} type="submit">Zaloguj</button>
         </form>
         <p className={styles.loginRegister}>Nie masz jeszcze konta? <Link href="/rejestracja"><a>Zarejestruj się</a></Link></p>
       </div>

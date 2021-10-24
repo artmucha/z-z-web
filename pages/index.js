@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import Header from 'components/Header';
 import Layout from 'components/Layout';
+import Header from 'components/Header';
 import Searcher from 'components/Searcher';
 import Card from 'components/Card';
 
@@ -12,9 +12,9 @@ import { container, grid } from 'styles/Layout.module.css'
 
 const Home = () => {
   return (
-    <Layout>
-      <Header>
-        <div className={container}>
+    <Layout homePage>
+      <Header homePage>
+        <div className={container} style={{ maxWidth: '1700px' }}>
           <div className={styles.hero}>
             <h1 className={styles.heroTitle}>Odzyskaj zagubione przedmioty i zwierzęta</h1>
             <Searcher />
@@ -39,10 +39,17 @@ const Home = () => {
               )
             )}
           </div>
-          </div>
+        </div>
       </Header>
+      <main>
       <section className={container}>
-        <h2 className={styles.homeHeading}>Najnowsze Zgubione</h2>
+        <h2 className={styles.homeHeading}>
+        <Link href={`/zgubione`}>
+          <a title="Zobacz najnowsze zagubione przedmioty">
+            Najnowsze Zgubione
+          </a>
+        </Link>
+        </h2>
         <div className={grid}>
 
           {/* start */}
@@ -101,7 +108,11 @@ const Home = () => {
       </section>
 
       <section className={container}>
-        <h2 className={styles.homeHeading}>Najnowsze Znalezione</h2>
+        <h2 className={styles.homeHeading}>
+        <Link href={`/znalezione`}>
+          <a title="Zobacz najnowsze znalezione przedmioty">Najnowsze Znalezione</a>
+        </Link>
+        </h2>
         <div className={grid}>
           
 
@@ -159,8 +170,6 @@ const Home = () => {
 
           </div>
       </section>
-
-      <main>
       </main>
     </Layout>
   )
