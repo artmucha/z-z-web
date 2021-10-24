@@ -48,6 +48,11 @@
 	color: #731982;
 }
 
+.loginErrors {
+	margin-top: 15px;
+	color: red;
+}
+
 @media (min-width: 768px) {
 	.loginHeading {
 		margin: 50px 0 30px 0;

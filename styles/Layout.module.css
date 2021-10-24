@@ -1,3 +1,7 @@
+.homePage {
+	padding: 30px 0;
+}
+
 .header {
 	width: 100%;
 	background-color: #ffffff;
@@ -5,6 +9,15 @@
 	padding-top: 15px;
 	padding-bottom: 5px;
 	border-radius: 25px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04);
+}
+
+.pageHeader {
+	width: 100%;
+	background-color: #ffffff;
+	color: #1a1a1a;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04);
 }
 
@@ -63,9 +76,25 @@
 }
 
 @media (min-width: 768px) {
+	.homePage {
+		padding: 30px;
+	}
+
+	.page {
+		padding: 0 0 30px 0;
+	}
+
 	.header {
 		padding-top: 30px;
 		padding-bottom: 20px;
+	}
+
+	.pageHeader {
+		width: 100%;
+		background-color: #ffffff;
+		color: #1a1a1a;
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 
 	.footer {
