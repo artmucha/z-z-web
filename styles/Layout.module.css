@@ -21,15 +21,6 @@
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04);
 }
 
-.menu {
-	display: flex;
-	align-items: center;
-}
-
-.menu li {
-	margin-left: 15px;
-}
-
 .footer {
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -120,7 +111,6 @@
 	text-align: center;
 	color: #ffffff;
 	transition: background-color 0.2s linear;
-	cursor: pointer;
 }
 
 .button:hover {
