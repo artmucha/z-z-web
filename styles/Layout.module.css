@@ -117,6 +117,19 @@
 	background: #660066;
 }
 
+.buttonIcon {
+	min-width: 52px;
+	height: 52px;
+	background-color: #00b956;
+	border: 0;
+	border-radius: 50%;
+	transition: background-color 0.2s linear;
+}
+
+.buttonIcon:hover {
+	background: #008224;
+}
+
 @media (min-width: 992px) {
 	.header {
 		border-radius: 80px;
