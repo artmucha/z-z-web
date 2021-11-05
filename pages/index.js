@@ -10,9 +10,9 @@ import { categories } from 'constans/filters';
 import styles from 'styles/Home.module.css'
 import { container, grid } from 'styles/Layout.module.css'
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <Layout homePage>
+    <Layout homePage currentUser={props.currentUser}>
       <Header homePage>
         <div className={container} style={{ maxWidth: '1700px' }}>
           <div className={styles.hero}>

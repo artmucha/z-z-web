@@ -5,6 +5,7 @@ import Popup from 'components/Popup';
 import Layout from 'components/Layout';
 import Header from 'components/Header';
 import Card from 'components/Card';
+import Filters from 'components/Filters';
 
 import { container, grid } from 'styles/Layout.module.css'
 import styles from 'styles/Page.module.css'
@@ -177,11 +178,11 @@ const Category = () => {
           </div>
         {/* end */}
 
-
-
         </div>
       </main>
-      <Popup popup={popup} setPopup={setPopup} />
+      <Popup popup={popup} setPopup={setPopup}>
+        <Filters type="zgubione" />
+      </Popup>
     </Layout>
   )
 };

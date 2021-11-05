@@ -59,7 +59,7 @@ const Filters = ({ type }) => {
         <div className={styles.filtersGroup}>
         { categories.map(category => 
           <label key={category.value} className={styles.filtersLabel}>
-            <input type="checkbox" value={category.slug} className={styles.filtersInput} onChange={() => setCategory(category.slug)} />
+            <input type="radio" value={category.slug} className={styles.filtersInput} onChange={() => setCategory(category.slug)} />
             <Card 
               type="icon"
               image={require(`/public/icons/${category.value}.svg`)}
