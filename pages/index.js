@@ -7,8 +7,10 @@ import Card from 'components/Card';
 
 import { categories } from 'constans/filters';
 
-import styles from 'styles/Home.module.css'
-import { container, grid } from 'styles/Layout.module.css'
+import AddIcon from '../public/icons/add.svg';
+
+import styles from 'styles/Home.module.css';
+import { container, grid, buttonIcon, buttonFloat } from 'styles/Layout.module.css';
 
 const Home = (props) => {
   return (
@@ -171,6 +173,11 @@ const Home = (props) => {
           </div>
       </section>
       </main>
+      <Link href={'/dodaj'}>
+        <a className={`${buttonIcon} ${buttonFloat}`}>
+          <AddIcon />
+        </a>
+      </Link>
     </Layout>
   )
 };

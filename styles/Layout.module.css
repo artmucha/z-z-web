@@ -118,7 +118,10 @@
 }
 
 .buttonIcon {
-	min-width: 52px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 52px;
 	height: 52px;
 	background-color: #00b956;
 	border: 0;
@@ -128,6 +131,12 @@
 
 .buttonIcon:hover {
 	background: #008224;
+}
+
+.buttonFloat {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
 }
 
 @media (min-width: 992px) {

@@ -7,10 +7,11 @@ import Header from 'components/Header';
 import Card from 'components/Card';
 import Filters from 'components/Filters';
 
-import { container, grid } from 'styles/Layout.module.css'
-import styles from 'styles/Page.module.css'
+import { container, grid, buttonIcon, buttonFloat } from 'styles/Layout.module.css';
+import styles from 'styles/Page.module.css';
 
-import AppsIcon from '../../public/icons/apps.svg'
+import AppsIcon from '../../public/icons/apps.svg';
+import AddIcon from '../../public/icons/add.svg';
 
 const Type = () => {
   const [popup, setPopup] = useState(false);
@@ -178,13 +179,16 @@ const Type = () => {
           </div>
         {/* end */}
 
-
-
         </div>
       </main>
       <Popup popup={popup} setPopup={setPopup}>
         <Filters type="zgubione" />
       </Popup>
+      <Link href={'/dodaj'}>
+        <a className={`${buttonIcon} ${buttonFloat}`}>
+          <AddIcon />
+        </a>
+      </Link>
     </Layout>
   )
 };
