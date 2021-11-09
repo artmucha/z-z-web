@@ -172,12 +172,12 @@ const Home = (props) => {
 
           </div>
       </section>
-      </main>
       <Link href={'/dodaj'}>
         <a className={`${buttonIcon} ${buttonFloat}`}>
           <AddIcon />
         </a>
       </Link>
+      </main>
     </Layout>
   )
 };

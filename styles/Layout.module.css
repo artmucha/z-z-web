@@ -41,6 +41,7 @@
 	margin: 0 auto;
 	padding-left: 15px;
 	padding-right: 15px;
+	position: relative;
 }
 
 .containerFlex {
@@ -147,6 +148,16 @@
 	.footer {
 		border-radius: 80px;
 	}
+
+	.buttonIcon {
+		width: 72px;
+		height: 72px;
+	}
+
+	.buttonFloat {
+		bottom: 30px;
+		right: 30px;
+	}
 }
 
 @media (min-width: 1600px) {
@@ -156,5 +167,10 @@
 
 	.containerFlex {
 		max-width: 1600px;
+	}
+
+	.buttonFloat {
+		bottom: 50px;
+		right: 50px;
 	}
 }
