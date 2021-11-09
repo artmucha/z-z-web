@@ -1,4 +1,4 @@
-.filtersForm {
+.form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -6,90 +6,118 @@
 	overflow-y: auto;
 }
 
-.filtersTitle {
+.formWrapper {
+	justify-content: center;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.formHeading {
+	margin: 30px 0 15px 0;
+	font-size: 22px;
+	text-align: center;
+}
+
+.formTitle {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 15px;
 	margin-top: 15px;
 }
 
-.filtersTitle span {
-	color: #731982;
-	cursor: pointer;
-}
-
-.filtersGroup {
+.formGroup {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
-.filtersLabel {
+.formLabel {
 	position: relative;
 	cursor: pointer;
 	margin: 0 7.5px 15px 7.5px;
 }
 
-.filtersInput {
+.formInputSpecial {
 	width: 1px;
 	height: 1px;
 	position: absolute;
 	visibility: hidden;
 }
 
-.filtersInput:checked ~ div {
+.formInputSpecial:checked ~ div {
 	background-color: rgba(255, 255, 255, 0.8);
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.07), 0 3px 7px 0 rgba(0, 0, 0, 0.06);
 }
 
-.filtersSearch {
+.formInputText {
 	width: 100%;
-	max-width: 400px;
+	max-width: 600px;
 	margin-bottom: 15px;
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #731982;
-	border-radius: 18px;
-	font-size: 18px;
+	border-radius: 16px;
+	font-size: 16px;
 }
 
-.filtersSelect {
+.formSelect {
 	width: 100%;
 	height: 52px;
 	padding: 0 15px;
 	font-family: Nunito, sans-serif;
 }
 
-.filtersResults {
+.formResults {
 	width: 100%;
 	max-height: 280px;
 	overflow-y: scroll;
+	background-color: #ffffff;
+	border-bottom-left-radius: 18px;
+	border-bottom-right-radius: 18px;
 }
 
-.filtersResults li {
+.formResults li {
 	cursor: pointer;
 	display: block;
 	width: 100%;
 	padding: 10px 15px;
 }
 
-.filtersResults li:hover {
+.formResults li:hover {
 	background-color: #f4f2f2;
 }
 
-.filtersCheckbox {
+.formCheckbox {
 	display: flex;
 	align-items: center;
 }
 
-.filtersCheckbox input {
+.formCheckbox input {
 	width: auto;
 	margin-right: 10px;
 }
 
+.formTextArea {
+	width: 100%;
+	min-height: 300px;
+	margin-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	border: 1px solid #731982;
+	border-radius: 16px;
+	font-size: 18px;
+	font-family: Nunito, sans-serif;
+}
+
 @media (min-width: 992px) {
-	.filtersGroup {
+	.formGroup {
 		display: flex;
 		flex-wrap: nowrap;
+	}
+
+	.formHeading {
+		margin: 50px 0 30px 0;
+		font-size: 36px;
 	}
 }

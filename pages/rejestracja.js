@@ -6,6 +6,7 @@ import Header from 'components/Header';
 import useRequest from 'hooks/useRequest';
 
 import styles from 'styles/Login.module.css';
+import { button } from 'styles/Layout.module.css';
 
 const Signup = () => {
   const router = useRouter();
@@ -18,13 +19,12 @@ const Signup = () => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({email, password}),
     onSuccess: () => router.push('/')
   });
 
   const submit = async e => {
     e.preventDefault();
-    await doRequest();
+    await doRequest({email, password});
   };
 
   return (
@@ -67,7 +67,7 @@ const Signup = () => {
 
           { errors }
 
-          <button className={styles.button} type="submit" style={{marginTop: '15px'}}>Zarejestruj</button>
+          <button className={button} type="submit" style={{marginTop: '15px'}}>Zarejestruj</button>
         </form>
       </div>
     </Layout>

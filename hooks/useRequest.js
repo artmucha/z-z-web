@@ -1,14 +1,13 @@
 import { useState } from "react";
-import Router from "next/router";
 import styles from 'styles/Login.module.css';
 
-const useRequest = ({url, method, headers, body, onSuccess}) => {
+const useRequest = ({url, method, headers, onSuccess}) => {
   const [errors, setErrors] = useState(null);
 
-  const doRequest = async () => {
+  const doRequest = async (body) => {
     try {
       setErrors(null);
-      const res = await fetch(url, {method, headers, body});
+      const res = await fetch(url, {method, headers, body: JSON.stringify(body)});
       const data = await res.json();
 
       if(onSuccess) onSuccess(data);

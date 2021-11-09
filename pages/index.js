@@ -14,7 +14,7 @@ import { container, grid, buttonIcon, buttonFloat } from 'styles/Layout.module.c
 
 const Home = (props) => {
   return (
-    <Layout homePage currentUser={props.currentUser}>
+    <Layout homePage>
       <Header homePage>
         <div className={container} style={{ maxWidth: '1700px' }}>
           <div className={styles.hero}>

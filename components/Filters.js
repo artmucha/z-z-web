@@ -5,7 +5,7 @@ import Card from 'components/Card';
 import { categories} from 'constans/filters';
 
 import { button } from 'styles/Layout.module.css'
-import styles from 'styles/Filters.module.css';
+import styles from 'styles/Form.module.css';
 
 const Filters = ({ type }) => {
   const searchRef = useRef(null);
@@ -53,13 +53,13 @@ const Filters = ({ type }) => {
   };
 
   return (
-    <form className={styles.filtersForm} action={`/${type}/${category}`} method="GET">
+    <form className={styles.form} action={`/${type}/${category}`} method="GET">
       <fieldset>
-        <legend className={styles.filtersTitle}>Kategorie</legend>
-        <div className={styles.filtersGroup}>
+        <legend className={styles.formTitle}>Kategorie</legend>
+        <div className={styles.formGroup}>
         { categories.map(category => 
-          <label key={category.value} className={styles.filtersLabel}>
-            <input type="radio" value={category.slug} className={styles.filtersInput} onChange={() => setCategory(category.slug)} />
+          <label key={category.value} className={styles.formLabel}>
+            <input type="radio" value={category.slug} className={styles.formInputSpecial} onChange={() => setCategory(category.slug)} />
             <Card 
               type="icon"
               image={require(`/public/icons/${category.value}.svg`)}
@@ -72,11 +72,11 @@ const Filters = ({ type }) => {
         </div>
       </fieldset>
       <fieldset>
-        <legend className={styles.filtersTitle}>Lokalizacja</legend>
-        <div className={styles.filtersGroup}>
-          <div ref={searchRef} className={styles.filtersSearch}>
+        <legend className={styles.formTitle}>Lokalizacja</legend>
+        <div className={styles.formGroup}>
+          <div ref={searchRef} className={styles.formInputText}>
               <input 
-                className={styles.filtersSelect}
+                className={styles.formSelect}
                 placeholder="Wyszukaj miasto" 
                 type="text"  
                 name="miasto"
@@ -84,7 +84,7 @@ const Filters = ({ type }) => {
                 onChange={handleSearch}
               />
               {active && results.length > 0 && (
-                <ul className={styles.filtersResults}>
+                <ul className={styles.formResults}>
                   {results.map(({Id, Name, Province, Latitude, Longitude}) => <li key={Id} onClick={(event) => handleClick(event, {Id, Name, Province, Latitude, Longitude})}>{Name} - woj. {Province}</li>)}
                 </ul>
               )}
@@ -95,8 +95,8 @@ const Filters = ({ type }) => {
       </fieldset>
       {type === 'zgubione' ? (
         <fieldset>
-          <legend className={styles.filtersTitle}>Znaleźne</legend>
-          <label className={styles.filtersCheckbox}>
+          <legend className={styles.formTitle}>Znaleźne</legend>
+          <label className={styles.formCheckbox}>
             <input type="checkbox" name="znalezne" />
             Pokaż tylko ogłoszenia ze znaleźnym
           </label>
