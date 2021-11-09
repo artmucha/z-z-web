@@ -3,6 +3,7 @@ import { useState, useCallback, useRef } from 'react';
 import Card from 'components/Card';
 
 import { categories} from 'constans/filters';
+import { debounce } from 'utils/helpers';
 
 import { button } from 'styles/Layout.module.css'
 import styles from 'styles/Form.module.css';
@@ -14,29 +15,17 @@ const Filters = ({ type }) => {
   const [results, setResults] = useState([]);
   const [active, setActive] = useState(false);
 
-  const debounce = useCallback((callback, wait) => {
-    let timeout;
-  
-    return (...args) => {
-      const next = () => {
-        timeout = null;
-        callback(...args);
-      }; 
-      clearTimeout(timeout);
-      timeout = setTimeout(next, wait);
-    };
-  }, []);
+  const getCities = debounce(async (location) => {
+    const res = await fetch(`http://localhost:5000/api/filters?search=${location}`);
+    const locations = await res.json();
+    setResults(locations);
+  }, 1000);
 
-  const handleSearch = useCallback((event) => {
-    const location = event.target.value;
+  const handleSearch = useCallback((location) => {
     setActive(true);
     setLocation(location);
-    if(location.length >=2) {
-      debounce(async() => {
-        const res = await fetch(`http://localhost:5000/api/filters?search=${location}`);
-        const data = await res.json();
-        setResults(data);
-      }, 1000)();
+    if(location.length > 2) {
+      getCities(location);
     } else {
       setActive(false);
       setResults([]);
@@ -47,7 +36,7 @@ const Filters = ({ type }) => {
     if(searchRef.current && !searchRef.current.contains(event.target)) {
       setActive(false);
     } else if (searchRef.current && searchRef.current.contains(event.target)) {
-      setLocation(city.Name);
+      setLocation(city);
       setActive(false);
     }
   };
@@ -81,11 +70,11 @@ const Filters = ({ type }) => {
                 type="text"  
                 name="miasto"
                 value={location}
-                onChange={handleSearch}
+                onChange={(e) => handleSearch(e.target.value)}
               />
               {active && results.length > 0 && (
                 <ul className={styles.formResults}>
-                  {results.map(({Id, Name, Province, Latitude, Longitude}) => <li key={Id} onClick={(event) => handleClick(event, {Id, Name, Province, Latitude, Longitude})}>{Name} - woj. {Province}</li>)}
+                  {results.map(({Id, Name, Province}) => <li key={Id} onClick={(event) => handleClick(event, Name)}>{Name} - woj. {Province}</li>)}                
                 </ul>
               )}
             </div>
