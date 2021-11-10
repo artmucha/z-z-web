@@ -110,6 +110,10 @@
 	font-family: Nunito, sans-serif;
 }
 
+.formErrors {
+	color: #d32;
+}
+
 @media (min-width: 992px) {
 	.formGroup {
 		display: flex;

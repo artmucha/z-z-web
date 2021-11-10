@@ -8,7 +8,11 @@ import { categories } from 'constans/filters';
 import { debounce } from 'utils/helpers';
 import useRequest from 'hooks/useRequest';
 
-import { container, button } from 'styles/Layout.module.css';
+import SpinnerIcon from '../public/icons/spinner.svg';
+import CheckIcon from '../public/icons/check.svg';
+import XIcon from '../public/icons/cross.svg';
+
+import { container, button, pending, error, success } from 'styles/Layout.module.css';
 import styles from 'styles/Form.module.css';
 
 const NewPost = () => {
@@ -30,13 +34,17 @@ const NewPost = () => {
     date: '',
   });
 
-  const [doRequest, errors] = useRequest({
+  const [doRequest, errors, status] = useRequest({
     url: 'http://localhost:5000/api/posts',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    onSuccess: () => router.push('/')
+    onSuccess: () =>  {
+      setTimeout(() => {
+        router.push('/')
+      }, 2000);
+    }
   });
 
   const makeSlug = (text) => {
@@ -101,7 +109,19 @@ const NewPost = () => {
     } catch(error) {
       console.log(error)
     }
+  };
 
+  const buttonStatus = () => {
+    if (status === 'pending') return <SpinnerIcon />
+    else if (status === 'success') return <CheckIcon />
+    else if (status === 'error') return <XIcon />
+    else return 'Dodaj'
+  };
+
+  const buttonStyle = () => {
+    if (status === 'pending') return pending
+    if (status === 'success') return success
+    if (status === 'error') return error
   };
 
   return (
@@ -195,7 +215,13 @@ const NewPost = () => {
 
             { errors }
 
-            <button className={button} type="submit" style={{ marginTop: '30px' }} onClick={(event) => handleSubmit(event)}>Dodaj</button>
+            <button 
+              className={`${button} ${buttonStyle()}`} 
+              type="submit" 
+              style={{ marginTop: '30px' }} 
+              onClick={(event) => handleSubmit(event)}>
+                { buttonStatus() }
+              </button>
           </form>
         </div>
       </main>

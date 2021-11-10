@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import { header, pageHeader, containerFlex } from 'styles/Layout.module.css'
+import { header, pageHeader, containerFlex } from 'styles/Layout.module.css';
 
-import UserIcon from '../public/icons/user.svg'
+import UserIcon from '../public/icons/user.svg';
 
 const Header = ({ children, homePage }) => {
   return (

@@ -118,6 +118,18 @@
 	background: #660066;
 }
 
+.button.success {
+	background-color: #081;
+}
+
+.button.pending svg {
+	animation: button-loading-spinner 1s ease infinite;
+}
+
+.button.error {
+	background-color: #d32;
+}
+
 .buttonIcon {
 	display: flex;
 	justify-content: center;
@@ -173,5 +185,15 @@
 	.buttonFloat {
 		bottom: 50px;
 		right: 50px;
+	}
+}
+
+@keyframes button-loading-spinner {
+	from {
+		transform: rotate(0turn);
+	}
+
+	to {
+		transform: rotate(1turn);
 	}
 }
