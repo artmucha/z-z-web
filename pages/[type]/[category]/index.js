@@ -13,7 +13,7 @@ import styles from 'styles/Page.module.css';
 import AppsIcon from '../../../public/icons/apps.svg';
 import AddIcon from '../../../public/icons/add.svg';
 
-const Category = ({posts}) => {
+const Category = ({posts, type, category}) => {
   const [popup, setPopup] = useState(false);
 
   return (
@@ -22,7 +22,7 @@ const Category = ({posts}) => {
       <main className={container}>
         <div className={styles.pageWrapper}>
           <h1 className={styles.pageTitle}>
-            Zgubione dokumenty
+            {type}: {category}
             <button onClick={() => setPopup(!popup)}>
               <AppsIcon />
             </button>
@@ -63,10 +63,8 @@ export async function getServerSideProps({params}) {
   const res = await fetch(`http://localhost:5000/api/posts?type=${params.type}&category=${params.category}`);
   const posts = await res.json();
 
-  console.log(posts)
-
   return {
-    props: { posts }
+    props: { posts, type: params.type, category: params.category }
   }
 };
 

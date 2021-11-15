@@ -13,7 +13,7 @@ import styles from 'styles/Page.module.css';
 import AppsIcon from '../../public/icons/apps.svg';
 import AddIcon from '../../public/icons/add.svg';
 
-const Type = ({posts}) => {
+const Type = ({posts, title}) => {
   const [popup, setPopup] = useState(false);
 
   return (
@@ -22,7 +22,7 @@ const Type = ({posts}) => {
       <main className={container}>
         <div className={styles.pageWrapper}>
           <h1 className={styles.pageTitle}>
-            Zgubione
+            {title}
             <button onClick={() => setPopup(!popup)}>
               <AppsIcon />
             </button>
@@ -64,7 +64,7 @@ export async function getServerSideProps({params}) {
   const posts = await res.json();
 
   return {
-    props: { posts }
+    props: { posts, title: params.type }
   }
 };
 
