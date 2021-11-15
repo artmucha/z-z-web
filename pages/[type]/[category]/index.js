@@ -13,7 +13,7 @@ import styles from 'styles/Page.module.css';
 import AppsIcon from '../../../public/icons/apps.svg';
 import AddIcon from '../../../public/icons/add.svg';
 
-const Category = () => {
+const Category = ({posts}) => {
   const [popup, setPopup] = useState(false);
 
   return (
@@ -27,158 +27,24 @@ const Category = () => {
               <AppsIcon />
             </button>
           </h1>
-
-          {/* start */}
-
           <div className={grid}>
 
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
+            {posts.map(post => (
+              <Link key={post._id} href={`/${post.slug}`}>
+                <a>
+                  <Card 
+                    image={post.image}
+                    width="100%"
+                    height="200px"
+                    title={post.title}
+                    category={post.category}
+                    date={post.date}
+                  />
+                </a>
+              </Link>
+            ))}
 
           </div>
-        {/* end */}
-
         </div>
       </main>
       <Popup popup={popup} setPopup={setPopup}>
@@ -191,6 +57,17 @@ const Category = () => {
       </Link>
     </Layout>
   )
+};
+
+export async function getServerSideProps({params}) {
+  const res = await fetch(`http://localhost:5000/api/posts?type=${params.type}&category=${params.category}`);
+  const posts = await res.json();
+
+  console.log(posts)
+
+  return {
+    props: { posts }
+  }
 };
 
 export default Category;
