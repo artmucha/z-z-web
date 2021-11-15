@@ -30,7 +30,7 @@ const Type = ({posts}) => {
           <div className={grid}>
 
             {posts.map(post => (
-              <Link href={`/${post.slug}`}>
+              <Link key={post._id} href={`/${post.slug}`}>
                 <a>
                   <Card 
                     image={post.image}
