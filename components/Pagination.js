@@ -9,7 +9,7 @@ const Pagination = ({currentPage, totalPages}) => {
     const path = router.pathname;
 		const query = router.query;
 
-    query.page = page + 1;
+    query.strona = page + 1;
     router.push({
       pathname: path,
       query: query,
@@ -19,12 +19,12 @@ const Pagination = ({currentPage, totalPages}) => {
 	const paginationList = [...Array(totalPages).keys()];
 	
   return (
-    <ul className={styles.pagination} currentPage={currentPage}>
+    <ul className={styles.pagination}>
       { paginationList.length > 1 && paginationList.map(item => (
-				<li key={item}>
-					<a onClick={() => handlePagination(item)}>{item + 1}</a>
-				</li>
-			)) }
+          <li key={item}>
+            <a className={`${currentPage === item+1 ? styles.active : ''}`} onClick={() => handlePagination(item)}>{item + 1}</a>
+          </li>
+      )) }
     </ul>
   );
 };

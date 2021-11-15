@@ -6,6 +6,7 @@ import Layout from 'components/Layout';
 import Header from 'components/Header';
 import Card from 'components/Card';
 import Filters from 'components/Filters';
+import Pagination from 'components/Pagination';
 
 import { container, grid, buttonIcon, buttonFloat } from 'styles/Layout.module.css';
 import styles from 'styles/Page.module.css';
@@ -13,7 +14,7 @@ import styles from 'styles/Page.module.css';
 import AppsIcon from '../../public/icons/apps.svg';
 import AddIcon from '../../public/icons/add.svg';
 
-const Type = ({posts, title}) => {
+const Type = ({posts, title, page}) => {
   const [popup, setPopup] = useState(false);
 
   return (
@@ -45,6 +46,12 @@ const Type = ({posts, title}) => {
             ))}
 
           </div>
+
+          <Pagination
+            currentPage={page.currentPage}
+            totalPages={page.maxPage}
+          />
+
         </div>
       </main>
       <Popup popup={popup} setPopup={setPopup}>
@@ -59,12 +66,12 @@ const Type = ({posts, title}) => {
   )
 };
 
-export async function getServerSideProps({params}) {
-  const res = await fetch(`http://localhost:5000/api/posts?type=${params.type}`);
-  const posts = await res.json();
+export async function getServerSideProps({params, query}) {
+  const res = await fetch(`http://localhost:5000/api/posts?type=${params.type}&page=${query.strona}`);
+  const {posts, currentPage, maxPage } = await res.json();
 
   return {
-    props: { posts, title: params.type }
+    props: { posts, title: params.type, page: {currentPage, maxPage} }
   }
 };
 
