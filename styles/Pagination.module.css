@@ -1,0 +1,21 @@
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 400px;
+	margin: 20px auto 0 auto;
+}
+
+.pagination li a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 32px;
+	height: 32px;
+	padding-top: 3px;
+	margin: 0 10px;
+	border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+}
