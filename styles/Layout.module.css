@@ -21,6 +21,19 @@
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.04);
 }
 
+.pageWrapper {
+	min-height: 100vh;
+}
+
+.pageTitle {
+	margin: 30px 0 15px 0;
+	font-size: 22px;
+	text-transform: capitalize;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .footer {
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -170,6 +183,11 @@
 	.buttonFloat {
 		bottom: 30px;
 		right: 30px;
+	}
+
+	.pageTitle {
+		margin: 50px 0 30px 0;
+		font-size: 36px;
 	}
 }
 

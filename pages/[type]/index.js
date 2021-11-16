@@ -8,8 +8,7 @@ import Card from 'components/Card';
 import Filters from 'components/Filters';
 import Pagination from 'components/Pagination';
 
-import { container, grid, buttonIcon, buttonFloat } from 'styles/Layout.module.css';
-import styles from 'styles/Page.module.css';
+import styles from 'styles/Layout.module.css';
 
 import AppsIcon from '../../public/icons/apps.svg';
 import AddIcon from '../../public/icons/add.svg';
@@ -20,7 +19,7 @@ const Type = ({posts, title, page}) => {
   return (
     <Layout>
       <Header />
-      <main className={container}>
+      <main className={styles.container}>
         <div className={styles.pageWrapper}>
           <h1 className={styles.pageTitle}>
             {title}
@@ -28,10 +27,10 @@ const Type = ({posts, title, page}) => {
               <AppsIcon />
             </button>
           </h1>
-          <div className={grid}>
+          <div className={styles.grid}>
 
             {posts.map(post => (
-              <Link key={post._id} href={`/${post.slug}`}>
+              <Link key={post._id} href={`/ogloszenie/${post.slug}`}>
                 <a>
                   <Card 
                     image={post.image}
@@ -58,7 +57,7 @@ const Type = ({posts, title, page}) => {
         <Filters type="zgubione" />
       </Popup>
       <Link href={'/dodaj'}>
-        <a className={`${buttonIcon} ${buttonFloat}`}>
+        <a className={`${styles.buttonIcon} ${styles.buttonFloat}`}>
           <AddIcon />
         </a>
       </Link>

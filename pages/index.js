@@ -55,7 +55,7 @@ const Home = ({data}) => {
         <div className={grid}>
 
         {data.lost.posts.slice(0,4).map(post => (
-          <Link key={post._id} href={`/${post.slug}`}>
+          <Link key={post._id} href={`/ogloszenie/${post.slug}`}>
             <a>
               <Card 
                 image={post.image}
@@ -81,7 +81,7 @@ const Home = ({data}) => {
         <div className={grid}>
 
         {data.found.posts.slice(0,4).map(post => (
-          <Link key={post._id} href={`/${post.slug}`}>
+          <Link key={post._id} href={`/ogloszenie/${post.slug}`}>
             <a>
               <Card 
                 image={post.image}
