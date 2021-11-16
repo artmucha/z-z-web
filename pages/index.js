@@ -12,7 +12,7 @@ import AddIcon from '../public/icons/add.svg';
 import styles from 'styles/Home.module.css';
 import { container, grid, buttonIcon, buttonFloat } from 'styles/Layout.module.css';
 
-const Home = (props) => {
+const Home = ({data}) => {
   return (
     <Layout homePage>
       <Header homePage>
@@ -54,57 +54,20 @@ const Home = (props) => {
         </h2>
         <div className={grid}>
 
-          {/* start */}
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
+        {data.lost.posts.slice(0,4).map(post => (
+          <Link key={post._id} href={`/${post.slug}`}>
+            <a>
               <Card 
-                image="/public/post.jpeg"
+                image={post.image}
                 width="100%"
                 height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+                title={post.title}
+                category={post.category}
+                date={post.date}
               />
-              </a>
+            </a>
           </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          {/* end */}
+        ))}
 
         </div>
       </section>
@@ -116,59 +79,21 @@ const Home = (props) => {
         </Link>
         </h2>
         <div className={grid}>
-          
 
-          {/* start */}
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
+        {data.found.posts.slice(0,4).map(post => (
+          <Link key={post._id} href={`/${post.slug}`}>
+            <a>
               <Card 
-                image="/public/post.jpeg"
+                image={post.image}
                 width="100%"
                 height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
+                title={post.title}
+                category={post.category}
+                date={post.date}
               />
-              </a>
+            </a>
           </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/post.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          <Link 
-              href={`/znalezione/`}
-            ><a>
-              <Card 
-                image="/public/kot.jpeg"
-                width="100%"
-                height="200px"
-                title="Znaleziono motor, opis jest długi, ale niepoterzbny"
-              />
-              </a>
-          </Link>
-
-          {/* end */}
+        ))}
 
           </div>
       </section>
@@ -180,6 +105,18 @@ const Home = (props) => {
       </main>
     </Layout>
   )
+};
+
+export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:5000/api/posts?type=zgubione`);
+  const lost = await res.json();
+
+  const resp = await fetch(`http://localhost:5000/api/posts?type=znalezione`);
+  const found = await resp.json();
+
+  return {
+    props: { data: {lost, found} }
+  }
 };
 
 export default Home;
