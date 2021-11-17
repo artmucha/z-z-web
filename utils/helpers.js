@@ -5,3 +5,7 @@ export const debounce = (callback, wait) => {
     timeout = setTimeout(() => callback(args), wait);
   }
 };
+
+export const imageLoader = ({ src, width, quality }) => {
+  return `http://localhost:5000/${src}?w=${width}&q=${quality || 75}`
+};
