@@ -32,3 +32,116 @@
 .messegesItem:hover {
 	background-color: rgba(255, 255, 255, 0.6);
 }
+
+/* Conversation */
+
+.conversation {
+	width: 100%;
+	padding: 15px;
+	display: flex;
+	flex-direction: column-reverse;
+	flex: 1 1 auto;
+	overflow: hidden;
+	background-color: #ffffff;
+}
+
+.conversationMessege {
+	flex: 1 0 auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+	position: relative;
+}
+
+.conversationMessege header {
+	font-size: 12px;
+	font-weight: 700;
+	color: #1a1a1a;
+	text-transform: uppercase;
+	display: flex;
+	align-items: flex-end;
+	margin: 8px 0px 24px;
+}
+
+.conversationMessege header::before,
+.conversationMessege header::after {
+	content: '';
+	display: block;
+	border-bottom: 1px solid #f4f2f2;
+
+	flex: 1 1 0%;
+	margin-bottom: 4px;
+}
+
+.conversationMessege header::before {
+	margin-right: 6px;
+}
+
+.conversationMessege header::after {
+	margin-left: 6px;
+}
+
+.conversationMessegeBox {
+	min-width: 40%;
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 auto;
+	overflow: hidden;
+	align-self: flex-end;
+}
+
+.conversationMessegeBox p {
+	font-size: 14px;
+	line-height: 18px;
+	color: #1a1a1a;
+	margin-bottom: 4px;
+}
+
+.conversationMessegeBox > div {
+	width: 100%;
+	min-height: 32px;
+	overflow-x: hidden;
+	align-self: flex-end;
+}
+
+.conversationMessegeBox > div > div {
+	width: 100%;
+	border-radius: 4px;
+	padding: 8px;
+	position: relative;
+	color: #1a1a1a;
+	background: #00b956 none repeat scroll 0% 0%;
+}
+
+.conversationMessegeBox > div > span {
+	width: 100%;
+	display: block;
+	font-size: 12px;
+	line-height: 14px;
+	color: #1a1a1a;
+	margin: 2px 0px;
+	text-align: right;
+}
+
+.conversationForm {
+	width: 100%;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+}
+
+@media (min-width: 992px) {
+	.conversation {
+		padding: 30px 160px;
+	}
+
+	.conversationMessegeBox {
+		max-width: calc(100% - 72px);
+	}
+
+	.conversationForm {
+		padding: 30px 160px;
+	}
+}
