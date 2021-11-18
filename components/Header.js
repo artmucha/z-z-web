@@ -11,7 +11,7 @@ const Header = ({ children, homePage }) => {
       <nav className={containerFlex}>
         <Link href="/"><a>Zgubione.com</a></Link>
         <div className={headerIcons}>
-          <Link href="/messeges"><a title="Wiadomości"><MessegeIcon /></a></Link>
+          <Link href="/profil/wiadomosci"><a title="Wiadomości"><MessegeIcon /></a></Link>
           <Link href="/logowanie"><a title="Zaloguj się"><UserIcon /></a></Link>
         </div>
       </nav>
